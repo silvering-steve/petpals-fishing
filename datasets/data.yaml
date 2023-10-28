@@ -1,0 +1,5 @@
+names:
+  - point
+nc: 1
+train: ../train
+val: ../valid
