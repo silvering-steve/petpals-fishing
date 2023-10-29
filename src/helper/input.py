@@ -1,5 +1,6 @@
 import pyautogui as py2
 from PIL import Image
+import time
 
 
 class Clicker:
@@ -7,7 +8,11 @@ class Clicker:
     def click(x: float, y: float) -> None:
         x, y = (int(x + 25), int(y + 25))
 
-        py2.click(x=x, y=y)
+        py2.moveTo(x=x, y=y)
+
+        time.sleep(.1)
+
+        py2.leftClick()
 
     @staticmethod
     def getscreen() -> (list[bool], Image):
