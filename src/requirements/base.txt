@@ -3,3 +3,6 @@ torchvision
 ultralytics
 keyboard
 pywin32
+onnx
+onnxruntime
+openvino
