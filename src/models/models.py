@@ -3,7 +3,7 @@ from ultralytics import YOLO
 
 class Model:
     def __init__(self) -> None:
-        self.model = YOLO("models/yolov8/best3.pt")
+        self.model = YOLO("models/yolov8/best4.pt")
 
     def __call__(self, *args, **kwargs) -> list[float] | None:
         result = self.model(kwargs["image"], conf=0.92, verbose=False)
