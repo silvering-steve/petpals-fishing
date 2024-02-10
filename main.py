@@ -1,31 +1,25 @@
-from src.helper.display import Display
-from src.models.models import Model
+from src.helper import object_coordinate
 from src.helper.input import Clicker
 
 import time
 import keyboard
 
 if __name__ == "__main__":
-    model = Model()
-    display = Display()
-
     for i in range(5):
         print(f"Bot start in {5 - i}")
         time.sleep(1)
 
     while not keyboard.is_pressed("q"):
-        is_fishing, screen = Clicker.getscreen(display.white_pos)
+        is_fishing, coordinate = Clicker.get_coordinate()
 
-        coordinate = model(image=screen)
+        if is_fishing:
+            Clicker.click(object_coordinate.bait_pos)
 
-        if all(is_fishing):
-            Clicker.click(display.bait_pos)
-
-        if coordinate is None:
+        if len(coordinate) == 0:
             print("Point not detected")
         else:
-            Clicker.click(coordinate)
+            Clicker.click(coordinate[0])
 
-            print(f"Point detected at {coordinate[0]} {coordinate[1]}")
+            print(f"Point detected at {coordinate[0][0]} {coordinate[0][1]}")
 
             time.sleep(.7)

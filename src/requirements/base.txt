@@ -1,5 +1,6 @@
 torch
 torchvision
+pyautogui
 ultralytics
 keyboard
 pywin32

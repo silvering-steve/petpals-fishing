@@ -1,6 +1,11 @@
-import pyautogui as py2
-from PIL import Image
 import time
+from typing import Any
+
+import pyautogui as py2
+
+from PIL import Image
+
+from src.models import model
 
 
 class Clicker:
@@ -15,10 +20,7 @@ class Clicker:
         py2.leftClick()
 
     @staticmethod
-    def getscreen(white_pos: tuple) -> (list[bool], Image):
+    def get_coordinate() -> tuple[bool, Any] | None:
         screen = py2.screenshot()
 
-        r, g, b = screen.getpixel(white_pos)
-        cond = [r == 255, g == 255, b == 255]
-
-        return cond, screen
+        return model(image=screen)
