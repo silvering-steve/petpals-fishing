@@ -7,3 +7,4 @@ pywin32
 onnx
 onnxruntime
 openvino
+wget
